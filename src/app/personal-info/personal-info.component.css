@@ -1,3 +1,10 @@
-/* .heading {
-    font-family: 'ArchyEDT-Bold', sans-serif;
-} */
+.done {
+    position: absolute;
+    top: 0.6em;
+    right: 1em;
+}
+.error {
+    position: absolute;
+    top: 0.6em;
+    right: -2em;
+}
