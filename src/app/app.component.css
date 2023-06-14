@@ -4,3 +4,11 @@
     max-width: 100%;
     width: 100%;
 }
+.nextButton {
+    background-color: #6B40E3;
+    font-size: 18px;
+}
+.previousButton {
+    background-color: #6B40E3;
+    font-size: 18px;
+}

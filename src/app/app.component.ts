@@ -7,13 +7,5 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'resumeGenerator';
-  // fillForm: FormGroup;
-  
-  // ngOnInit() {
-  //   this.fillForm = new FormGroup({
-  //     ''
-  //   });
-  // }
-  
+  title = 'resumeGenerator'; 
 } 
