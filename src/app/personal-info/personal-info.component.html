@@ -10,7 +10,12 @@
                     type="text" 
                     id="name"
                     formControlName="name"
-                    (blur)="fillForm.get('name')?.markAsUntouched()">
+                    (blur)="fillForm.get('name')?.markAsUntouched()"
+                    [ngClass]="{
+                        'invalid-input': fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty),
+                        'valid-input': fillForm.get('name')?.valid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)
+                    }"
+                >
                 <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('name')?.valid">
                 <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)">
                 <small class="position-absolute form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
@@ -19,15 +24,19 @@
         <div class="form-group col-5">
             <label for="surname">გვარი</label>
             <div class="position-relative">
-
                 <input 
                     class="form-control"
                     type="text"
                     id="surname"
-                    formControlName="surname">
-                    <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('surname')?.valid">
-                    <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)">
-                        <small class="form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
+                    formControlName="surname"
+                    [ngClass]="{
+                        'invalid-input': fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty),
+                        'valid-input': fillForm.get('surname')?.valid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)
+                    }"
+                >
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('surname')?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)">
+                <small class="form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
             </div>
         </div>
     </div>
@@ -62,7 +71,12 @@
                 type="email" 
                 id="email" 
                 placeholder="example@redberry.ge"
-                formControlName="email">
+                formControlName="email"
+                [ngClass]="{
+                    'invalid-input': fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty),
+                    'valid-input': fillForm.get('email')?.valid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)
+                }"
+            >
             <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('email')?.valid">
             <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)">
             <small class="form-text text-muted">უნდა მთავრდებოდეს @redberry.ge</small>
@@ -76,7 +90,12 @@
                 type="tel" 
                 id="phoneNumber" 
                 placeholder="+995555123456"
-                formControlName="phoneNumber">
+                formControlName="phoneNumber"
+                [ngClass]="{
+                    'invalid-input': fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty),
+                    'valid-input': fillForm.get('phoneNumber')?.valid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)
+                }"
+            >
             <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('phoneNumber')?.valid">
             <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)">
             <small class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</small>
