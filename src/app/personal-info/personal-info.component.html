@@ -1,105 +1,110 @@
-<form action="" [formGroup]="fillForm" (ngSubmit)="onSubmit()"> 
-    <h1 class="heading m-0">პირადი ინფო</h1>
-    <img class="line" src="../../assets/Line 12.png" alt="line">    
-    <div class="row justify-content-between my-4">
-        <div class="form-group col-5">
-            <label for="name">სახელი</label>
-            <div class="position-relative">
-                <input 
-                    class="form-control"
-                    type="text" 
-                    id="name"
-                    formControlName="name"
-                    (blur)="fillForm.get('name')?.markAsUntouched()"
-                    [ngClass]="{
-                        'invalid-input': fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty),
-                        'valid-input': fillForm.get('name')?.valid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)
-                    }"
-                >
-                <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('name')?.valid">
-                <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)">
-                <small class="position-absolute form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
+<div class="col-6 mx-5 mt-5 px-5">
+    <form action="" [formGroup]="fillForm" (ngSubmit)="onSubmit()"> 
+        <h1 class="heading m-0">პირადი ინფო</h1>
+        <img class="line" src="../../assets/Line 12.png" alt="line">    
+        <div class="row justify-content-between my-4">
+            <div class="form-group col-5">
+                <label for="name">სახელი</label>
+                <div class="position-relative">
+                    <input 
+                        class="form-control"
+                        type="text" 
+                        id="name"
+                        formControlName="name"
+                        (blur)="fillForm.get('name')?.markAsUntouched()"
+                        [ngClass]="{
+                            'invalid-input': fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty),
+                            'valid-input': fillForm.get('name')?.valid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)
+                        }"
+                    >
+                    <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('name')?.valid">
+                    <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)">
+                    <small class="position-absolute form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
+                </div>
+            </div>
+            <div class="form-group col-5">
+                <label for="surname">გვარი</label>
+                <div class="position-relative">
+                    <input 
+                        class="form-control"
+                        type="text"
+                        id="surname"
+                        formControlName="surname"
+                        [ngClass]="{
+                            'invalid-input': fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty),
+                            'valid-input': fillForm.get('surname')?.valid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)
+                        }"
+                    >
+                    <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('surname')?.valid">
+                    <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)">
+                    <small class="form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
+                </div>
             </div>
         </div>
-        <div class="form-group col-5">
-            <label for="surname">გვარი</label>
+        <div class="form-group my-4">
+            <label for="">პირადი ფოტოს ატვირთვა</label>
+            <label for="photo" class="col-2 mx-3 p-1 bg-primary text-white text-center rounded">
+                <input 
+                class="form-control"
+                type="file"
+                class="form-control-file d-none"
+                id="photo"
+                formControlName="photo">ატვირთვა
+            </label>
+            
+        </div>
+        <div class="form-group my-4">
+            <label for="about">ჩემ შესახებ</label>
+            <textarea 
+                class="form-control"
+                type="text"
+                id="about"
+                rows="4" 
+                placeholder="ზოგადი ინფო შენ შესახებ"
+                formControlName="about">>
+            </textarea>
+        </div>
+        <div class="form-group my-4">
+            <label for="email">ელ.ფოსტა</label>
             <div class="position-relative">
                 <input 
-                    class="form-control"
-                    type="text"
-                    id="surname"
-                    formControlName="surname"
+                    class="form-control"   
+                    type="email" 
+                    id="email" 
+                    placeholder="example@redberry.ge"
+                    formControlName="email"
                     [ngClass]="{
-                        'invalid-input': fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty),
-                        'valid-input': fillForm.get('surname')?.valid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)
+                        'invalid-input': fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty),
+                        'valid-input': fillForm.get('email')?.valid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)
                     }"
                 >
-                <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('surname')?.valid">
-                <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)">
-                <small class="form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('email')?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)">
+                <small class="form-text text-muted">უნდა მთავრდებოდეს @redberry.ge</small>
             </div>
         </div>
-    </div>
-    <div class="form-group my-4">
-        <label for="">პირადი ფოტოს ატვირთვა</label>
-        <label for="photo" class="col-2 mx-3 p-1 bg-primary text-white text-center rounded">
-            <input 
-            class="form-control"
-            type="file"
-            class="form-control-file d-none"
-            id="photo"
-            formControlName="photo">ატვირთვა
-        </label>
-        
-    </div>
-    <div class="form-group my-4">
-        <label for="about">ჩემ შესახებ</label>
-        <textarea 
-            class="form-control"
-            type="text"
-            id="about"
-            rows="4" 
-            placeholder="ზოგადი ინფო შენ შესახებ"
-            formControlName="about">>
-        </textarea>
-    </div>
-    <div class="form-group my-4">
-        <label for="email">ელ.ფოსტა</label>
-        <div class="position-relative">
-            <input 
-                class="form-control"   
-                type="email" 
-                id="email" 
-                placeholder="example@redberry.ge"
-                formControlName="email"
-                [ngClass]="{
-                    'invalid-input': fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty),
-                    'valid-input': fillForm.get('email')?.valid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)
-                }"
-            >
-            <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('email')?.valid">
-            <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)">
-            <small class="form-text text-muted">უნდა მთავრდებოდეს @redberry.ge</small>
+        <div class="form-group my-4">
+            <label for="phoneNumber">მობილურის ნომერი</label>
+            <div class="position-relative">
+                <input 
+                    class="form-control" 
+                    type="tel" 
+                    id="phoneNumber" 
+                    placeholder="+995555123456"
+                    formControlName="phoneNumber"
+                    [ngClass]="{
+                        'invalid-input': fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty),
+                        'valid-input': fillForm.get('phoneNumber')?.valid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)
+                    }"
+                >
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('phoneNumber')?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)">
+                <small class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</small>
+            </div>
+        </div> 
+        <div class="d-flex justify-content-end">
+            <!-- <button class="my-4 px-4 py-2 previousButton border-0 text-light rounded position-absolute start-0">უკან</button> -->
+            <button class="my-4 px-4 py-2 nextButton border-0 text-light rounded end-0" routerLink="/experience">შემდეგი</button>
         </div>
-    </div>
-    <div class="form-group my-4">
-        <label for="phoneNumber">მობილურის ნომერი</label>
-        <div class="position-relative">
-            <input 
-                class="form-control" 
-                type="tel" 
-                id="phoneNumber" 
-                placeholder="+995555123456"
-                formControlName="phoneNumber"
-                [ngClass]="{
-                    'invalid-input': fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty),
-                    'valid-input': fillForm.get('phoneNumber')?.valid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)
-                }"
-            >
-            <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('phoneNumber')?.valid">
-            <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)">
-            <small class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</small>
-        </div>
-    </div> 
-</form>
-
+    </form>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
- 
+
 @Component({
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',

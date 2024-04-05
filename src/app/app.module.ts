@@ -8,13 +8,17 @@ import { ExperienceComponent } from './experience/experience.component';
 import { EducationComponent } from './education/education.component';
 import { RouterModule, Routes } from '@angular/router'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'personal-info', component: PersonalInfoComponent },
   { path: 'experience', component: ExperienceComponent },
   { path: 'education', component: EducationComponent }
-
 ];
 
 @NgModule({
@@ -26,10 +30,14 @@ const appRoutes: Routes = [
     EducationComponent
   ],
   imports: [
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule, 
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

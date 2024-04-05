@@ -1,1 +1,62 @@
-<p>experience works!</p>
+<div class="col-6 mx-5 mt-5 px-5">
+    <form action=""> 
+        <h1 class="heading m-0">გამოცდილება</h1>
+        <img class="line" src="../../assets/Line 12.png" alt="line">    
+        <div class="form-group my-4">
+            <label for="name">თანამდებობა</label>
+            <div class="position-relative">
+                <input class="col-12">
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="">
+                <br>
+                <small class="position-sticky form-text text-muted">მინიმუმ 2 სიმბოლო</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="surname">დამსაქმებელი</label>
+            <div class="position-relative">
+                <input class="col-12">
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="">
+                <br>
+                <small class="form-text text-muted">მინიმუმ 2 სიმბოლო</small>
+            </div>
+        </div>
+        
+        <div class="form-group my-4">
+            <label for="aboutE">აღწერა</label>
+            <textarea
+                class="form-control"
+                type="text"
+                id="aboutE"
+                rows="4" 
+                placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
+                formControlName="aboutE">
+            </textarea>
+        </div>
+        <div class="d-grid justify-content-between col-12">
+            <div class="form-group col-5">
+                <label for="start">დაწყების თარიღი</label><br>
+                <mat-form-field>
+                    <input id="start" matInput [matDatepicker]="startDatePicker" placeholder="mm/dd/yyyy">
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="form-group col-5">
+                <label for="end">დასრულების თარიღი</label><br>
+                <mat-form-field>
+                    <input id="end" matInput [matDatepicker]="endDatePicker" placeholder="mm/dd/yyyy">
+                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endDatePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button class="my-4 px-4 py-2 previousButton border-0 text-light rounded start-0" routerLink="/personal-info">უკან</button>
+            <button class="my-4 px-4 py-2 nextButton border-0 text-light rounded end-0" routerLink="/education">შემდეგი</button>
+        </div>
+        
+    </form>
+</div>
