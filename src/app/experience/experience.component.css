@@ -1,0 +1,17 @@
+.done {
+    position: absolute;
+    top: 0.6em;
+    right: 1em;
+}
+.error {
+    position: absolute;
+    top: 0.6em;
+    right: -2em;
+}
+.invalid-input {
+    border: 1px solid red;
+}
+  
+.valid-input {
+border: 1px solid green;
+}

@@ -14,7 +14,7 @@ export class ExperienceComponent {
     private mainService: MainService
   ){}
   fillForm: FormGroup = new FormGroup({
-    experperience: new FormControl(null, [
+    position: new FormControl(null, [
       Validators.required,
       Validators.minLength(2),
       this.mainService.georgianLetters
@@ -31,10 +31,16 @@ export class ExperienceComponent {
     }
     )
   });
-  get getExperience(){
-    return this.fillForm.get('experience')
+  get getPosition(){
+    return this.fillForm.get('position')
   }
   get getEmployer(){
     return this.fillForm.get('employer')
+  }
+  onSubmit(){
+    this.fillForm.markAllAsTouched()
+    if(this.fillForm.invalid)return;
+    this.router.navigate(['/education'])
+    console.log(this.fillForm.value);
   }
 }

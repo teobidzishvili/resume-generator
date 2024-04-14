@@ -1,24 +1,43 @@
 <div class="col-6 mx-5 mt-5 px-5">
-    <form action=""> 
+    <form action="" [formGroup]="fillForm" (ngSubmit)="onSubmit()"> 
         <h1 class="heading m-0">გამოცდილება</h1>
         <img class="line" src="../../assets/Line 12.png" alt="line">    
         <div class="form-group my-4">
-            <label for="name">თანამდებობა</label>
+            <label for="position">თანამდებობა</label>
             <div class="position-relative">
-                <input class="col-12" formControlName="experience">
-                <img class="done" src="../../assets/done.png" alt="done" *ngIf="">
-                <img class="error" src="../../assets/error.png" alt="error" *ngIf="">
-                <br>
-                <mat-error *ngIf="getExperience?.invalid && (getExperience?.touched || getExperience?.dirty)" class="position-sticky form-text text-muted">მინიმუმ 2 სიმბოლო</mat-error>
+                <input
+                    class="col-12 form-control"
+                    type="text" 
+                    id="position"
+                    formControlName="position"
+                    (blur)="getPosition?.markAsUntouched()"
+                    [ngClass]="{
+                        'invalid-input': getPosition?.invalid && (getPosition?.touched || getPosition?.dirty),
+                        'valid-input': getPosition?.valid && (getPosition?.touched || getPosition?.dirty)
+                    }"
+                 
+                >
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="getPosition?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="getPosition?.invalid && (getPosition?.touched || getPosition?.dirty)">
+                <mat-error *ngIf="getPosition?.invalid && (getPosition?.touched || getPosition?.dirty)" class="form-text text-muted">მინიმუმ 2 სიმბოლო</mat-error>
             </div>
         </div>
-        <div class="form-group">
-            <label for="surname">დამსაქმებელი</label>
+        <div class="form-group my-4">
+            <label for="employer">დამსაქმებელი</label>
             <div class="position-relative">
-                <input class="col-12" formControlName="employer">
-                <img class="done" src="../../assets/done.png" alt="done" *ngIf="">
-                <img class="error" src="../../assets/error.png" alt="error" *ngIf="">
-                <br>
+                <input 
+                    class="col-12 form-control"
+                    type="text"
+                    id="employer"
+                    formControlName="employer"
+                    (blur)="getEmployer?.markAsUntouched"
+                    [ngClass]="{
+                        'invalid-input': getEmployer?.invalid && (getEmployer?.touched || getEmployer?.dirty),
+                        'valid-input': getEmployer?.valid && (getEmployer?.touched || getEmployer?.dirty)
+                    }"
+                >
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="getEmployer?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="getEmployer?.invalid && (getEmployer?.touched || getEmployer?.dirty)">
                 <mat-error *ngIf="getEmployer?.invalid && (getEmployer?.touched || getEmployer?.dirty)" class="form-text text-muted">მინიმუმ 2 სიმბოლო</mat-error>
             </div>
         </div>
