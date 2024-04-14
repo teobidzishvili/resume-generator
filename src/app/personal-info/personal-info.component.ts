@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -7,51 +9,58 @@ import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn } from
   styleUrls: ['./personal-info.component.css']
 })
 
-export class PersonalInfoComponent implements OnInit {
-  fillForm!: FormGroup;
-  constructor( ){}
+export class PersonalInfoComponent {
+  constructor(
+    private router: Router,
+    private mainService: MainService
+  ){}
   ngOnInit() {
-    this.fillForm = new FormGroup({
-      'name': new FormControl(null, [
-        Validators.required, 
-        Validators.minLength(2),
-        this.georgianLetters
-      ]),
-      'surname': new FormControl(null, [
-        Validators.required, 
-        Validators.minLength(2),
-        this.georgianLetters
-      ]),
-      'photo': new FormControl(null, Validators.required),
-      'about': new FormControl(null),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'phoneNumber': new FormControl(null, {
-        validators: [Validators.required, this.georgianPhoneNumberValidator()]
-      }
-        
-      )
-    });
-        
+  }
+  fillForm: FormGroup = new FormGroup({
+    name: new FormControl(null, [
+      Validators.required, 
+      Validators.minLength(2),
+      this.mainService.georgianLetters
+    ]),
+    surname: new FormControl(null, [
+      Validators.required, 
+      Validators.minLength(2),
+      this.mainService.georgianLetters
+    ]),
+    photo: new FormControl(null, Validators.required),
+    about: new FormControl(null),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    phoneNumber: new FormControl(null, {
+      validators: [Validators.required, this.mainService.georgianPhoneNumberValidator()]
     }
-  
+    )
+  });
+  get getName(){
+    return this.fillForm.get('name')
+  }
+  get getSurname(){
+    return this.fillForm.get('surname')
+  }
+  get getPhoto(){
+    return this.fillForm.get('photo')
+  }
+  get getEmail(){
+    return this.fillForm.get('email')
+  }
+  get getPhoneNumber(){
+    return this.fillForm.get('phonemNumber')
+  }
   onSubmit(){
-     console.log(this.fillForm);
-  }
-  
-  georgianLetters(control: FormControl): { [key: string]: any } | null {
-    const georgianPattern = /^[\u10A0-\u10FF\s]+$/; // Regular expression for Georgian letters
-  
-    if (control.value && (!georgianPattern.test(control.value) || control.value < 2 )) {
-      return { georgianLetters: true }; // Return error if the value contains non-Georgian characters
-    }
-  
-    return null; // Return null if the value is valid
-  }
-  georgianPhoneNumberValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      const valid = /^\+995\d{9}$/.test(control.value);
-      return valid ? null : { georgianPhoneNumber: { value: control.value } };
-    };
+    this.fillForm.markAllAsTouched()
+    if(this.fillForm.invalid)return;
+    this.router.navigate(['/experience'])
+    console.log(this.fillForm.value);
   }
 
 }
+  
+
+
+    
+
+

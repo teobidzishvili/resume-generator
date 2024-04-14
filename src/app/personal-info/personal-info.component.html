@@ -11,15 +11,15 @@
                         type="text" 
                         id="name"
                         formControlName="name"
-                        (blur)="fillForm.get('name')?.markAsUntouched()"
+                        (blur)="getName?.markAsUntouched()"
                         [ngClass]="{
-                            'invalid-input': fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty),
-                            'valid-input': fillForm.get('name')?.valid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)
+                            'invalid-input': getName?.invalid && (getName?.touched || getName?.dirty),
+                            'valid-input': getName?.valid && (getName?.touched || getName?.dirty)
                         }"
                     >
-                    <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('name')?.valid">
-                    <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('name')?.invalid && (fillForm.get('name')?.touched || fillForm.get('name')?.dirty)">
-                    <small class="position-absolute form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
+                    <img class="done" src="../../assets/done.png" alt="done" *ngIf="getName?.valid">
+                    <img class="error" src="../../assets/error.png" alt="error" *ngIf="getName?.invalid && (getName?.touched || getName?.dirty)">
+                    <mat-error *ngIf="getName?.invalid && (getName?.touched || getName?.touched)" class="position-absolute form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</mat-error>
                 </div>
             </div>
             <div class="form-group col-5">
@@ -31,13 +31,13 @@
                         id="surname"
                         formControlName="surname"
                         [ngClass]="{
-                            'invalid-input': fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty),
-                            'valid-input': fillForm.get('surname')?.valid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)
+                            'invalid-input': getSurname?.invalid && (getSurname?.touched || getSurname?.dirty),
+                            'valid-input': getSurname?.valid && (getSurname?.touched || getSurname?.dirty)
                         }"
                     >
-                    <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('surname')?.valid">
-                    <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('surname')?.invalid && (fillForm.get('surname')?.touched || fillForm.get('surname')?.dirty)">
-                    <small class="form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</small>
+                    <img class="done" src="../../assets/done.png" alt="done" *ngIf="getSurname?.valid">
+                    <img class="error" src="../../assets/error.png" alt="error" *ngIf="getSurname?.invalid && (getSurname?.touched || getSurname?.dirty)">
+                    <mat-error *ngIf="getSurname?.invalid && (getSurname?.touched || getSurname?.dirty)" class="form-text text-muted">მინიმუმ 2 ასო, ქართული ასოები</mat-error>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                 id="photo"
                 formControlName="photo">ატვირთვა
             </label>
-            
+            <mat-error *ngIf="getPhoto?.invalid && (getPhoto?.touched || getPhoto?.dirty)">ფოტოს ატვირთვა სავალდებულოა</mat-error>
         </div>
         <div class="form-group my-4">
             <label for="about">ჩემ შესახებ</label>
@@ -74,13 +74,13 @@
                     placeholder="example@redberry.ge"
                     formControlName="email"
                     [ngClass]="{
-                        'invalid-input': fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty),
-                        'valid-input': fillForm.get('email')?.valid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)
+                        'invalid-input': getEmail?.invalid && (getEmail?.touched || getEmail?.dirty),
+                        'valid-input': getEmail?.valid && (getEmail?.touched || getEmail?.dirty)
                     }"
                 >
-                <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('email')?.valid">
-                <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('email')?.invalid && (fillForm.get('email')?.touched || fillForm.get('email')?.dirty)">
-                <small class="form-text text-muted">უნდა მთავრდებოდეს @redberry.ge</small>
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="getEmail?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="getEmail?.invalid && (getEmail?.touched || getEmail?.dirty)">
+                <mat-error *ngIf="getEmail?.invalid && (getEmail?.touched || getEmail?.dirty)" class="form-text text-muted">უნდა მთავრდებოდეს @redberry.ge</mat-error>
             </div>
         </div>
         <div class="form-group my-4">
@@ -88,23 +88,23 @@
             <div class="position-relative">
                 <input 
                     class="form-control" 
-                    type="tel" 
+                    type="text" 
                     id="phoneNumber" 
                     placeholder="+995555123456"
                     formControlName="phoneNumber"
                     [ngClass]="{
-                        'invalid-input': fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty),
-                        'valid-input': fillForm.get('phoneNumber')?.valid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)
+                        'invalid-input': getPhoneNumber?.invalid && (getPhoneNumber?.touched || getPhoneNumber?.dirty),
+                        'valid-input': getPhoneNumber?.valid && (getPhoneNumber?.touched || getPhoneNumber?.dirty)
                     }"
                 >
-                <img class="done" src="../../assets/done.png" alt="done" *ngIf="fillForm.get('phoneNumber')?.valid">
-                <img class="error" src="../../assets/error.png" alt="error" *ngIf="fillForm.get('phoneNumber')?.invalid && (fillForm.get('phoneNumber')?.touched || fillForm.get('phoneNumber')?.dirty)">
-                <small class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</small>
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="getPhoneNumber?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="getPhoneNumber?.invalid && (getPhoneNumber?.touched || getPhoneNumber?.dirty)">
+                <mat-error *ngIf="getPhoneNumber?.invalid && (getPhoneNumber?.touched || getPhoneNumber?.dirty)" class="form-text text-muted">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</mat-error>
             </div>
-        </div> 
+        </div>
         <div class="d-flex justify-content-end">
             <!-- <button class="my-4 px-4 py-2 previousButton border-0 text-light rounded position-absolute start-0">უკან</button> -->
-            <button class="my-4 px-4 py-2 nextButton border-0 text-light rounded end-0" routerLink="/experience">შემდეგი</button>
+            <button class="my-4 px-4 py-2 nextButton border-0 text-light rounded end-0">შემდეგი</button>
         </div>
     </form>
 </div>
