@@ -1,1 +1,77 @@
-<p>education works!</p>
+<div class="col-6 mx-5 mt-5 px-5">
+    <form action="" [formGroup]="fillForm" (ngSubmit)="onSubmit()"> 
+        <h1 class="heading m-0">განათლება</h1>
+        <img class="line" src="../../assets/Line 12.png" alt="line">    
+        <div class="form-group my-4">
+            <label for="position">სასწავლებელი</label>
+            <div class="position-relative">
+                <input
+                    class="col-12 form-control"
+                    type="text" 
+                    id="position"
+                    formControlName="position"
+                    (blur)="getPosition?.markAsUntouched()"
+                    [ngClass]="{
+                        'invalid-input': getPosition?.invalid && (getPosition?.touched || getPosition?.dirty),
+                        'valid-input': getPosition?.valid && (getPosition?.touched || getPosition?.dirty)
+                    }"
+                 
+                >
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="getPosition?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="getPosition?.invalid && (getPosition?.touched || getPosition?.dirty)">
+                <mat-error *ngIf="getPosition?.invalid && (getPosition?.touched || getPosition?.dirty)" class="form-text text-muted">მინიმუმ 2 სიმბოლო</mat-error>
+            </div>
+        </div>
+        <div class="d-grid justify-content-between col-12 mt-2">
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="employer">ხარისხი</label>
+                    <div class="position-relative">
+                    <select 
+                        class="col-6 form-control"
+                        type="text"
+                        id="employer"
+                        formControlName="employer"
+                        (blur)="getEmployer?.markAsUntouched"
+                        [ngClass]="{
+                            'invalid-input': getEmployer?.invalid && (getEmployer?.touched || getEmployer?.dirty),
+                            'valid-input': getEmployer?.valid && (getEmployer?.touched || getEmployer?.dirty)
+                        }"
+                    >
+                    <option value="">თსუ</option>
+                    <option value="">გთუ</option>
+                </select>
+                <img class="done" src="../../assets/done.png" alt="done" *ngIf="getEmployer?.valid">
+                <img class="error" src="../../assets/error.png" alt="error" *ngIf="getEmployer?.invalid && (getEmployer?.touched || getEmployer?.dirty)">
+                <mat-error *ngIf="getEmployer?.invalid && (getEmployer?.touched || getEmployer?.dirty)" class="form-text text-muted">მინიმუმ 2 სიმბოლო</mat-error>
+            </div>
+                </div>
+                <div class="form-group col-6">
+                    <label for="end">დასრულების თარიღი</label><br>
+                    <mat-form-field appearance="outline" class="custom-date-picker">
+                        <input id="end" matInput [matDatepicker]="endDatePicker" placeholder="mm/dd/yyyy" formControlName="endDate">
+                        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #endDatePicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            
+        </div>        
+        <div class="form-group my-4">
+            <label for="aboutE">აღწერა</label>
+            <textarea
+                class="form-control"
+                type="text"
+                id="aboutE"
+                rows="4" 
+                placeholder="განათლების აღწერა"
+                formControlName="about">
+            </textarea>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button class="my-4 px-4 py-2 previousButton border-0 text-light rounded start-0" routerLink="/personal-info">უკან</button>
+            <button class="my-4 px-4 py-2 nextButton border-0 text-light rounded end-0" routerLink="/education">შემდეგი</button>
+        </div>
+        
+    </form>
+</div>

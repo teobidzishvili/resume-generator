@@ -15,3 +15,28 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.custom-date-picker {
+    width: 90%; /* Adjust as needed */
+  }
+  
+  .custom-date-picker input {
+    padding: 10px; /* Add padding for a larger click area */
+    font-size: 16px; /* Adjust font size */
+  }
+  
+  .mat-datepicker-toggle .mat-icon-button {
+    color: #3f51b5; /* Change calendar icon color */
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #3f51b5; /* Border color */
+  }
+  
+  .mat-form-field-outline {
+    border-width: 2px;
+  }
+  
+  .mat-form-field-outline-thick {
+    border-width: 3px;
+  }
+  

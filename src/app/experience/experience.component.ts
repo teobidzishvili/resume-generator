@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from '../main.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
+
 
 @Component({
   selector: 'app-experience',

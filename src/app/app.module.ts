@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MainService } from './main.service';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 
 const appRoutes: Routes = [
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     HomeComponent,
     PersonalInfoComponent,
     ExperienceComponent,
-    EducationComponent
+    EducationComponent,
+    DatePickerComponent
   ],
   imports: [
     MatDatepickerModule,
