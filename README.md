@@ -10,6 +10,6 @@ Figma Design Link https://www.figma.com/file/kJGQuzCJza4QF1JTLW3M9T/Bootcamp-%23
 Web Font for headings: https://github.com/web-fonts/archyedt-bold
 
 Reactive Forms
-Angular Materials
+Angular Materials (date picker)
 
 
